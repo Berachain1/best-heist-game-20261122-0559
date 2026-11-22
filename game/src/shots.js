@@ -21,10 +21,10 @@ export function applyShot(state, name) {
     s.thief.y = 300;
     s.thief.angle = Math.PI / 4;
     s.guards[0].x = 620;
-    s.guards[0].y = 250;
+    s.guards[0].y = 270;
     s.guards[0].angle = -Math.PI / 2;
-    s.guards[1].x = 920;
-    s.guards[1].y = 470;
+    s.guards[1].x = 980;
+    s.guards[1].y = 330;
     s.guards[1].angle = Math.PI;
     s.cameras[0].angle = Math.PI / 2 + 0.45;
     s.alarm.level = 0;
@@ -69,8 +69,8 @@ export function applyShot(state, name) {
     s.guards[1].x = 900;
     s.guards[1].y = 470;
     s.guards[1].angle = -Math.PI / 2;
-    s.guards[2].x = 640;
-    s.guards[2].y = 500;
+    s.guards[2].x = 700;
+    s.guards[2].y = 470;
     s.guards[2].angle = -Math.PI / 2;
     s.guards[2].mode = 'chase';
     s.cameras[0].angle = Math.PI / 2 + 0.5;

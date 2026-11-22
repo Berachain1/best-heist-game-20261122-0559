@@ -39,11 +39,11 @@ export function buildRoom(index) {
       exit: { x: 1180, y: 580, w: 64, h: 52 },
       lootPos: { x: 1120, y: 74 },
       guards: [
-        { x: 300, y: 250, waypoints: [[300, 250], [950, 250]], pause: 1.2 },
-        { x: 1050, y: 470, waypoints: [[1050, 470], [820, 470], [820, 300]], pause: 1.0 },
+        { x: 300, y: 270, waypoints: [[300, 270], [950, 270]], pause: 1.2 },
+        { x: 1050, y: 330, waypoints: [[1050, 330], [880, 330]], pause: 1.0 },
       ],
       cameras: [
-        { x: 640, y: 26, base: Math.PI / 2, sweep: 0.75, speed: 0.55, range: 215 },
+        { x: 640, y: 30, base: Math.PI / 2, sweep: 0.75, speed: 0.55, range: 215 },
       ],
       solids: [
         { x: 240, y: 150, w: 150, h: 70, kind: 'case', label: 'display case' },
@@ -52,7 +52,7 @@ export function buildRoom(index) {
         { x: 330, y: 380, w: 170, h: 70, kind: 'case', label: 'display case' },
         { x: 700, y: 400, w: 170, h: 70, kind: 'case', label: 'display case' },
         { x: 1020, y: 430, w: 130, h: 70, kind: 'case', label: 'display case' },
-        { x: 600, y: 255, w: 60, h: 60, kind: 'pillar', label: 'marble pillar' },
+        { x: 600, y: 330, w: 60, h: 60, kind: 'pillar', label: 'marble pillar' },
       ],
       rugs: [{ x: 430, y: 250, w: 420, h: 150, label: 'gallery carpet' }],
       vents: [{ x: 120, y: 596, w: 900, h: 26, label: 'vent shaft' }],
@@ -69,11 +69,11 @@ export function buildRoom(index) {
       guards: [
         { x: 320, y: 180, waypoints: [[320, 180], [960, 180]], pause: 1.0 },
         { x: 960, y: 470, waypoints: [[960, 470], [320, 470]], pause: 1.0 },
-        { x: 640, y: 520, waypoints: [[640, 520], [640, 120]], pause: 1.4 },
+        { x: 180, y: 330, waypoints: [[180, 330], [420, 330]], pause: 1.4 },
       ],
       cameras: [
-        { x: 300, y: 26, base: Math.PI / 2, sweep: 0.7, speed: 0.7, range: 215 },
-        { x: 980, y: 26, base: Math.PI / 2, sweep: 0.7, speed: 0.6, range: 215 },
+        { x: 300, y: 30, base: Math.PI / 2, sweep: 0.7, speed: 0.7, range: 215 },
+        { x: 980, y: 30, base: Math.PI / 2, sweep: 0.7, speed: 0.6, range: 215 },
       ],
       solids: [
         { x: 180, y: 110, w: 120, h: 90, kind: 'crate', label: 'gold crates' },
@@ -100,12 +100,12 @@ export function buildRoom(index) {
     lootPos: { x: 640, y: 204 },
     guards: [
       { x: 300, y: 300, waypoints: [[300, 300], [980, 300]], pause: 1.0 },
-      { x: 980, y: 500, waypoints: [[980, 500], [300, 500]], pause: 1.0 },
-      { x: 640, y: 420, waypoints: [[640, 420], [640, 220], [900, 220]], pause: 1.2 },
+      { x: 980, y: 420, waypoints: [[980, 420], [700, 420]], pause: 1.0 },
+      { x: 640, y: 420, waypoints: [[640, 420], [900, 420]], pause: 1.2 },
     ],
     cameras: [
-      { x: 200, y: 26, base: Math.PI / 2, sweep: 0.8, speed: 0.65, range: 215 },
-      { x: 1080, y: 26, base: Math.PI / 2, sweep: 0.8, speed: 0.75, range: 215 },
+      { x: 200, y: 30, base: Math.PI / 2, sweep: 0.8, speed: 0.65, range: 215 },
+      { x: 1080, y: 30, base: Math.PI / 2, sweep: 0.8, speed: 0.75, range: 215 },
     ],
     solids: [
       { x: 220, y: 130, w: 170, h: 80, kind: 'sofa', label: 'velvet sofa' },

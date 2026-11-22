@@ -48,7 +48,15 @@ function drawFloor(ctx, room) {
     ctx.fillStyle = 'rgba(220, 230, 255, 0.6)';
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('VENT — QUIET ROUTE', v.x + v.w / 2, v.y + v.h / 2 + 4);
+    if (v.w >= v.h) {
+      ctx.fillText('VENT — QUIET ROUTE', v.x + v.w / 2, v.y + v.h / 2 + 4);
+    } else {
+      ctx.save();
+      ctx.translate(v.x + v.w / 2, v.y + v.h / 2);
+      ctx.rotate(-Math.PI / 2);
+      ctx.fillText('VENT — QUIET ROUTE', 0, 4);
+      ctx.restore();
+    }
   }
 }
 
@@ -173,7 +181,9 @@ function drawExit(ctx, room, state) {
   ctx.fillText(open ? 'EXIT ✓' : 'EXIT 🔒', e.x + e.w / 2, e.y + e.h / 2 + 5);
   ctx.font = 'bold 11px sans-serif';
   ctx.fillStyle = open ? PALETTE.exit : '#9ca3af';
-  ctx.fillText(open ? 'GETAWAY — GO!' : 'GRAB THE LOOT FIRST', e.x + e.w / 2, e.y - 16);
+  ctx.textAlign = 'right';
+  ctx.fillText(open ? 'GETAWAY — GO!' : 'GRAB THE LOOT FIRST', Math.min(e.x + e.w, VIEW.w - 8), e.y - 16);
+  ctx.textAlign = 'left';
   ctx.restore();
 }
 
@@ -206,7 +216,7 @@ function drawCameras(ctx, state) {
     ctx.fillStyle = '#e8eaf2';
     ctx.font = 'bold 10px sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText(disabled ? 'CAM OFF' : 'CAM', c.x, c.y - 16);
+    ctx.fillText(disabled ? 'CAM OFF' : 'CAM', c.x, c.y + 26);
   }
 }
 
@@ -293,10 +303,19 @@ function drawCoinsAndSmoke(ctx, state) {
     const p = f.t / f.dur;
     const x = f.x0 + (f.x - f.x0) * p;
     const y = f.y0 + (f.y - f.y0) * p - Math.sin(p * Math.PI) * 30;
+    ctx.strokeStyle = 'rgba(255, 217, 74, 0.5)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(f.x0, f.y0);
+    ctx.lineTo(x, y);
+    ctx.stroke();
     ctx.fillStyle = PALETTE.lootGold;
     ctx.beginPath();
-    ctx.arc(x, y, 7, 0, Math.PI * 2);
+    ctx.arc(x, y, 9, 0, Math.PI * 2);
     ctx.fill();
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
   }
   for (const s of state.smokes) {
     ctx.fillStyle = PALETTE.smoke;
@@ -435,6 +454,7 @@ export function drawGame(ctx, state) {
   ctx.save();
   ctx.translate(0, VIEW.hud);
   drawFloor(ctx, state.room);
+  drawSolids(ctx, state.room);
   drawLoot(ctx, state.room, state);
   drawExit(ctx, state.room, state);
   drawCoinsAndSmoke(ctx, state);
